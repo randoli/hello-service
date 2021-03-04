@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloServiceApplication {
 
+	@Value("${greeting}")
+	private String greeting;
+
 	public static void main(String[] args) {
 		SpringApplication.run(HelloServiceApplication.class, args);
 	}
 
 	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello Mr %s!", name);
+	public String hello() {
+		return greeting;
 	}
 }

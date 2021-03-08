@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloServiceApplication {
 
-	//@Value("${greeting}")
-	private String greeting="Hello from my local cluster";
+	@Value("${greeting}")
+	private String greeting;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HelloServiceApplication.class, args);
